@@ -1,0 +1,61 @@
+{
+  "id": "trace-rls-agent",
+  "agent_name": "RLS Coverage Agent",
+  "specialty": "repo mapping + scoring",
+  "focus": "Assemble coverage, route-to-finding anchors, score movement, and merge-readiness summaries for the final audit room.",
+  "status": "completed",
+  "verification_status": "coverage verified",
+  "confidence": "high",
+  "elapsed_ms": 3810,
+  "files_inspected": [
+    "audit-fixtures/manifest.json",
+    "audit-fixtures/coverage.json",
+    "audit-fixtures/repo-map.json",
+    "audit-fixtures/score-before-after.json",
+    "audit-fixtures/score-coverage.json",
+    "app/(workspace)/admin/page.tsx",
+    "components/admin/trust-score-panel.tsx"
+  ],
+  "routes_noticed": [
+    "/admin",
+    "/projects/[projectId]",
+    "/integrations",
+    "/sign-in"
+  ],
+  "candidate_detected": {
+    "finding_ids": [
+      "RL-TRUST-002",
+      "RL-TRUST-006",
+      "RL-TRUST-007"
+    ],
+    "summary": "Coverage and score narrative was strong, but needed a tighter bundle export, trace story, and merge-readiness answer."
+  },
+  "evidence_collected": [
+    "audit-fixtures/evidence-bundle.json",
+    "audit-fixtures/safe-to-merge.json",
+    "audit-fixtures/demo-report.md"
+  ],
+  "suggested_patch_generated": "Create coverage-aware score artifact, exportable evidence bundle, and safe-to-merge summary with premium demo language.",
+  "status_transitions": [
+    {
+      "status": "queued",
+      "at": "2026-04-16T15:02:11+05:30",
+      "note": "Scheduled as top-level trace to align evidence, scoring, and replay artifacts."
+    },
+    {
+      "status": "scanning",
+      "at": "2026-04-16T15:02:14+05:30",
+      "note": "Mapped route groups, audit manifests, and existing score files."
+    },
+    {
+      "status": "evidence-linked",
+      "at": "2026-04-16T15:02:17+05:30",
+      "note": "Attached repo-map, coverage, score, and merge-readiness artifacts to the audit room story."
+    },
+    {
+      "status": "completed",
+      "at": "2026-04-16T15:02:19+05:30",
+      "note": "Verified deterministic proof bundle and premium narration metadata."
+    }
+  ]
+}

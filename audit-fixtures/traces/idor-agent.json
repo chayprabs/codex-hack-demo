@@ -1,0 +1,56 @@
+{
+  "id": "trace-idor-agent",
+  "agent_name": "Access Scope Agent",
+  "specialty": "resource authorization narratives",
+  "focus": "Review project detail routes, JSON loaders, and resource handles for deterministic access-control proof material.",
+  "status": "completed",
+  "verification_status": "fixture-only route verified",
+  "confidence": "high",
+  "elapsed_ms": 2650,
+  "files_inspected": [
+    "app/(workspace)/projects/[projectId]/page.tsx",
+    "app/api/projects/[projectId]/route.ts",
+    "components/projects/access-review-panel.tsx",
+    "components/projects/project-detail-hero.tsx",
+    "audit-fixtures/snippets/project-record-loader.ts.disabled",
+    "audit-fixtures/evidence/RL-TRUST-003-access-control-idor.md"
+  ],
+  "routes_noticed": [
+    "/projects/[projectId]",
+    "/api/projects/[projectId]"
+  ],
+  "candidate_detected": {
+    "finding_ids": [
+      "RL-TRUST-003"
+    ],
+    "summary": "Predictable project handles and tenant-like scopes made the detail route an ideal IDOR-style demo anchor."
+  },
+  "evidence_collected": [
+    "audit-fixtures/evidence/RL-TRUST-003-access-control-idor.md",
+    "audit-fixtures/patches/RL-TRUST-003-access-control-idor.diff.txt",
+    "audit-fixtures/replay/RL-TRUST-003-access-control-idor.md"
+  ],
+  "suggested_patch_generated": "Use tenant-aware record loaders, opaque identifiers, and viewer policy gates before returning data.",
+  "status_transitions": [
+    {
+      "status": "queued",
+      "at": "2026-04-16T15:02:13+05:30",
+      "note": "Assigned to project detail and project API route surfaces."
+    },
+    {
+      "status": "scanning",
+      "at": "2026-04-16T15:02:15+05:30",
+      "note": "Mapped resource handles, client scopes, and route parameters."
+    },
+    {
+      "status": "candidate-confirmed",
+      "at": "2026-04-16T15:02:17+05:30",
+      "note": "Confirmed RL-TRUST-003 as a primary stage narrative."
+    },
+    {
+      "status": "completed",
+      "at": "2026-04-16T15:02:18+05:30",
+      "note": "Validated that runtime remains mock-only and non-exploitable."
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "repo": "trustlayer-demo-app",
+  "audit_mode": "seeded-safe-demo-target",
+  "frameworks_detected": [
+    "Next.js 15",
+    "TypeScript",
+    "App Router",
+    "Tailwind CSS"
+  ],
+  "trust_score": {
+    "before": 62,
+    "current": 88,
+    "delta": 26,
+    "label": "Premium demo ready"
+  },
+  "coverage": {
+    "supported_count": 7,
+    "partial_count": 3,
+    "unsupported_count": 3,
+    "summary": "Coverage is strongest on seeded findings, evidence notes, replay docs, trace outputs, route mapping, and the demo artifact consistency gate."
+  },
+  "findings": [
+    {
+      "id": "RL-TRUST-001",
+      "title": "Launch export bundle preserves a credential-shaped preview in shared evidence",
+      "severity": "Medium",
+      "verification_status": "verified",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-002",
+      "title": "Admin utilities reference a redacted service alias with broad operational scope",
+      "severity": "High",
+      "verification_status": "verified",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-003",
+      "title": "Project detail handles make a tenant-scope review feel necessary",
+      "severity": "High",
+      "verification_status": "verified",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-004",
+      "title": "Launch relay scenario models missing signature and replay defenses",
+      "severity": "High",
+      "verification_status": "verified",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-005",
+      "title": "Persona switch mirrors a legacy trust-by-email session shortcut",
+      "severity": "High",
+      "verification_status": "partial",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-006",
+      "title": "Generated filter fragment would need review before entering the data layer",
+      "severity": "Medium",
+      "verification_status": "verified",
+      "replay_ready": true
+    },
+    {
+      "id": "RL-TRUST-007",
+      "title": "Browser-visible runtime labels and permissive preview notes broaden exposure review",
+      "severity": "Medium",
+      "verification_status": "manual review only",
+      "replay_ready": true
+    }
+  ],
+  "evidence": [
+    {
+      "id": "bundle-evidence-001",
+      "type": "finding manifest",
+      "path": "audit-fixtures/manifest.json",
+      "note": "Deterministic canonical source for all seeded scenarios."
+    },
+    {
+      "id": "bundle-evidence-002",
+      "type": "agent traces",
+      "path": "audit-fixtures/traces/",
+      "note": "Operational summaries from specialist agents with status transitions and verification outcomes."
+    },
+    {
+      "id": "bundle-evidence-003",
+      "type": "patch summaries",
+      "path": "audit-fixtures/patches/",
+      "note": "Safe diff-style patch guidance that reinforces remediation feel."
+    },
+    {
+      "id": "bundle-evidence-004",
+      "type": "replay vault",
+      "path": "audit-fixtures/replay/replay-index.json",
+      "note": "Replay-ready pass criteria and regression classification for each scenario."
+    },
+    {
+      "id": "bundle-evidence-005",
+      "type": "artifact consistency gate",
+      "path": "scripts/verify-demo.mjs",
+      "note": "Machine-checkable guard that confirms the manifest, traces, scores, replay data, and docs all agree before demo time."
+    }
+  ],
+  "support_status": {
+    "supported": [
+      "Finding generation",
+      "Agent traces",
+      "Evidence bundle export",
+      "Replay index",
+      "Safe-to-merge summary",
+      "Coverage-aware scoring",
+      "TrustScore narration",
+      "Artifact consistency gate"
+    ],
+    "partial": [
+      "Auth/session trust validation in a no-auth runtime",
+      "Access-control proof without a real tenant backend",
+      "Config/CORS narrative without live network policies"
+    ],
+    "unsupported": [
+      "Real cloud IAM validation",
+      "Third-party webhook delivery telemetry",
+      "External secret-manager inventory"
+    ]
+  },
+  "verification_status": {
+    "verified_findings_count": 5,
+    "partial_verification_count": 1,
+    "manual_review_count": 1
+  },
+  "replay_ready_notes": [
+    "Every seeded finding maps to a replay note, patch diff, and evidence summary.",
+    "The bundle can be narrated from the admin audit room without leaving the repo.",
+    "Replay entries are safe and descriptive; they never invoke a real attack path.",
+    "npm run verify:demo confirms the artifact layer stays internally consistent before stage time."
+  ]
+}

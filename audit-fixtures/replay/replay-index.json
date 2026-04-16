@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-04-16",
+  "entries": [
+    {
+      "id": "TS-DEMO-001",
+      "title": "Premium audit-room regression sweep",
+      "finding_ids": [
+        "RL-TRUST-001",
+        "RL-TRUST-002",
+        "RL-TRUST-003",
+        "RL-TRUST-004",
+        "RL-TRUST-005",
+        "RL-TRUST-006",
+        "RL-TRUST-007"
+      ],
+      "mapped_paths": [
+        "app/(workspace)/admin/page.tsx",
+        "audit-fixtures/evidence-bundle.json",
+        "audit-fixtures/safe-to-merge.json"
+      ],
+      "pass_looks_like": "Admin audit room loads cleanly, traces are complete, evidence bundle exports, and score plus merge summaries remain internally consistent.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/TS-DEMO-001.md"
+    },
+    {
+      "id": "RL-TRUST-001",
+      "title": "Secrets export snapshot replay",
+      "finding_ids": ["RL-TRUST-001"],
+      "mapped_paths": [
+        ".env.example",
+        "audit-fixtures/evidence/redacted-env-excerpt.json"
+      ],
+      "pass_looks_like": "Only placeholder values remain and no runtime code imports the snapshot.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-001-secrets-export-snapshot.md"
+    },
+    {
+      "id": "RL-TRUST-002",
+      "title": "Service alias scope replay",
+      "finding_ids": ["RL-TRUST-002"],
+      "mapped_paths": [
+        "components/admin/service-utility-panel.tsx",
+        "audit-fixtures/snippets/admin-key-preview.ts.disabled"
+      ],
+      "pass_looks_like": "Only redacted aliases are surfaced and no live key value appears in env, UI, or traces.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-002-service-admin-key-risk.md"
+    },
+    {
+      "id": "RL-TRUST-003",
+      "title": "Project access scope replay",
+      "finding_ids": ["RL-TRUST-003"],
+      "mapped_paths": [
+        "app/(workspace)/projects/[projectId]/page.tsx",
+        "app/api/projects/[projectId]/route.ts"
+      ],
+      "pass_looks_like": "Project detail pages remain mock-only and access review metadata stays descriptive rather than executable.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-003-access-control-idor.md"
+    },
+    {
+      "id": "RL-TRUST-004",
+      "title": "Webhook verification replay",
+      "finding_ids": ["RL-TRUST-004"],
+      "mapped_paths": [
+        "app/api/webhooks/provider/route.ts",
+        "app/(workspace)/integrations/page.tsx"
+      ],
+      "pass_looks_like": "Non-fixture traffic is rejected and fixture traffic remains deterministic and side-effect free.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-004-webhook-verification-risk.md"
+    },
+    {
+      "id": "RL-TRUST-005",
+      "title": "Session trust replay",
+      "finding_ids": ["RL-TRUST-005"],
+      "mapped_paths": [
+        "app/sign-in/page.tsx",
+        "app/api/session/route.ts"
+      ],
+      "pass_looks_like": "No real session is created and persona switching remains local-only.",
+      "verification_mode": "partially verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-005-auth-session-trust-risk.md"
+    },
+    {
+      "id": "RL-TRUST-006",
+      "title": "Generated code review replay",
+      "finding_ids": ["RL-TRUST-006"],
+      "mapped_paths": [
+        "audit-fixtures/snippets/raw-filter-builder.ts.disabled",
+        "app/api/projects/route.ts"
+      ],
+      "pass_looks_like": "Generated helper remains disabled and runtime data access stays array-backed.",
+      "verification_mode": "fully verified",
+      "doc": "audit-fixtures/replay/RL-TRUST-006-unsafe-generated-code-pattern.md"
+    },
+    {
+      "id": "RL-TRUST-007",
+      "title": "Config and frontend exposure replay",
+      "finding_ids": ["RL-TRUST-007"],
+      "mapped_paths": [
+        ".env.example",
+        "app/(workspace)/settings/page.tsx"
+      ],
+      "pass_looks_like": "Browser-visible values stay synthetic and no permissive runtime CORS behavior exists.",
+      "verification_mode": "manual review only",
+      "doc": "audit-fixtures/replay/RL-TRUST-007-config-cors-frontend-exposure.md"
+    }
+  ]
+}

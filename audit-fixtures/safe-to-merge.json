@@ -1,0 +1,30 @@
+{
+  "safe_to_merge_now": true,
+  "merge_scope": "safe demo target only",
+  "summary": "Relaylane is safe to merge as a TrustLayer demo target because all risky scenarios remain seeded, deterministic, and non-executable. The premium proof layer improves audit storytelling without creating live exploit paths.",
+  "verified_now": [
+    "Build, lint, and typecheck pass",
+    "npm run verify:demo passes artifact consistency checks",
+    "Webhook route remains fixture-only",
+    "Environment samples use placeholders only",
+    "Agent traces and evidence bundle are internally consistent",
+    "Replay index maps cleanly to seven seeded findings"
+  ],
+  "manual_review_needed": [
+    "Config and frontend exposure narrative remains a reviewer-owned interpretation",
+    "Auth/session trust story is intentionally partial because no real auth system exists"
+  ],
+  "unsupported_areas": [
+    "Real cloud IAM validation",
+    "Third-party webhook delivery telemetry",
+    "External secret-manager inventory"
+  ],
+  "highest_score_drivers": [
+    "Deterministic evidence bundle export",
+    "Specialist agent traces",
+    "Coverage-aware scoring",
+    "Replay vault with pass criteria",
+    "Artifact consistency gate",
+    "Safe-to-merge summary tied to verification results"
+  ]
+}

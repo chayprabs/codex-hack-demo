@@ -1,0 +1,22 @@
+{
+  "trust_score": {
+    "before": 62,
+    "after": 88,
+    "delta": 26
+  },
+  "coverage_percent": 86,
+  "supported_area_count": 7,
+  "verified_findings_count": 5,
+  "unsupported_areas": [
+    "Real cloud IAM validation",
+    "Third-party webhook delivery telemetry",
+    "External secret-manager inventory"
+  ],
+  "confidence_notes": [
+    "High confidence on seeded findings backed by evidence, replay, patch, and trace artifacts.",
+    "Medium confidence on frontend/config exposure because interpretation remains reviewer-led.",
+    "Partial confidence on auth/session trust because the runtime intentionally omits a real auth provider."
+  ],
+  "before_state": "Promising demo app with light audit scaffolding.",
+  "after_state": "Premium demo target with traces, proof bundles, replay vault, merge-readiness artifacts, and a verifier-backed preflight."
+}

@@ -10,9 +10,9 @@ import type {
 
 export const demoWorkspace = {
   name: "Relaylane",
-  slogan: "Launch planning for product teams that ship under pressure.",
+  slogan: "Launch operations software for teams shipping visible work under pressure.",
   workspaceId: "ws_relayscale",
-  plan: "Growth Sandbox",
+  plan: "Launch Ops Sandbox",
   auditMode: "Seeded demo fixtures active",
 };
 
@@ -202,6 +202,39 @@ export const projects: Project[] = [
       "Manual-review fixture added for the AI escalation workflow.",
     ],
   },
+  {
+    id: "beacon-partner-hub",
+    name: "Beacon Partner Hub",
+    client: "Beacon Ventures",
+    vertical: "B2B SaaS",
+    status: "On track",
+    health: "stable",
+    ownerId: "user_mina",
+    budget: 76000,
+    spent: 28900,
+    progress: 48,
+    nextMilestone: "Partner preview walkthrough on Apr 25",
+    summary:
+      "A partner-facing launch hub with onboarding scorecards, release notes, and executive-ready rollout views.",
+    launchWindow: "Early access wave",
+    squad: ["Product Marketing", "Platform", "Lifecycle"],
+    tags: ["Partner portal", "Enablement", "Executive"],
+    resourceHandle: "proj_demo_beacon_partner_hub",
+    clientSpace: "beacon-ventures/partner-preview",
+    viewerPolicy: "Preview council fixture",
+    openTasks: 14,
+    blockers: ["Preview video still in review", "Partner enablement copy awaiting signoff"],
+    checklist: [
+      { label: "Preview accounts staged", done: true },
+      { label: "Launch FAQ drafted", done: true },
+      { label: "Partner feedback rubric added", done: false },
+      { label: "Executive brief published", done: false },
+    ],
+    updates: [
+      "Preview wave labels were tightened so the repo mapper shows cleaner launch objects.",
+      "Settings copy now mirrors a real B2B rollout cadence without relying on external services.",
+    ],
+  },
 ];
 
 export const messageThreads: MessageThread[] = [
@@ -286,6 +319,28 @@ export const messageThreads: MessageThread[] = [
       },
     ],
   },
+  {
+    id: "thread-exec-briefing",
+    channel: "Executive briefing",
+    topic: "Launch posture recap for investor update and audit story",
+    participants: ["user_mina", "user_jon", "user_sage"],
+    unreadCount: 1,
+    lastMessageAt: "07:30 UTC",
+    messages: [
+      {
+        id: "msg_9",
+        senderId: "user_jon",
+        sentAt: "07:05 UTC",
+        body: "The investor deck is pulling screenshots from the admin audit room because it feels more substantial than a simple project board.",
+      },
+      {
+        id: "msg_10",
+        senderId: "user_sage",
+        sentAt: "07:30 UTC",
+        body: "Perfect. The trace cards and replay vault make the final report story feel like a real product, not a static checklist.",
+      },
+    ],
+  },
 ];
 
 export const activityLog: ActivityEvent[] = [
@@ -333,48 +388,82 @@ export const activityLog: ActivityEvent[] = [
     happenedAt: "Today",
     projectId: "orbit-support-copilot",
   },
+  {
+    id: "act_6",
+    actorId: "user_mina",
+    title: "Partner preview lane aligned",
+    detail: "Beacon Partner Hub launch copy was updated so the portfolio and settings views read like one coherent startup product.",
+    kind: "quality",
+    happenedAt: "Today",
+    projectId: "beacon-partner-hub",
+  },
 ];
 
 export const integrations: Integration[] = [
   {
     id: "linear",
     name: "Linear",
+    category: "Planning",
+    environment: "Production mirror",
     status: "Connected",
     syncHealth: "excellent",
     owner: "Lina Cho",
     lastSync: "4 minutes ago",
     description: "Mirrors launch issues and keeps project burndown cards fresh.",
     scopes: ["Roadmap sync", "Sprint status", "Owner handoff"],
+    scenarioHook: "Useful baseline integration to contrast against webhook-heavy review lanes.",
   },
   {
     id: "slack",
     name: "Slack",
+    category: "Comms",
+    environment: "Production mirror",
     status: "Connected",
     syncHealth: "stable",
     owner: "Mina Patel",
     lastSync: "11 minutes ago",
     description: "Broadcasts launch milestones and seeds war room channels.",
     scopes: ["Alerts", "Approvals", "Incident routing"],
+    scenarioHook: "Makes notification and escalation copy feel grounded in real launch operations.",
   },
   {
     id: "hubspot",
     name: "HubSpot",
+    category: "CRM",
+    environment: "Sandbox mirror",
     status: "Sandbox",
     syncHealth: "watch",
     owner: "Jon Rivera",
     lastSync: "Yesterday",
     description: "Demo-only CRM mirroring with non-production contact fixtures.",
     scopes: ["Lifecycle sync", "Executive rollups"],
+    scenarioHook: "Supports the frontend exposure and runtime label story without requiring a real CRM.",
   },
   {
     id: "sentry",
     name: "Sentry",
+    category: "Observability",
+    environment: "Internal lane",
     status: "Needs attention",
     syncHealth: "watch",
     owner: "Sage Bryant",
     lastSync: "2 days ago",
     description: "Tracks mock release regressions and maps them to review queues.",
     scopes: ["Release alerts", "Trace snapshots"],
+    scenarioHook: "Pairs well with the premium trace artifact story and the final report feel.",
+  },
+  {
+    id: "statuspage",
+    name: "Statuspage",
+    category: "Comms",
+    environment: "Sandbox mirror",
+    status: "Sandbox",
+    syncHealth: "stable",
+    owner: "Omar Hassan",
+    lastSync: "36 minutes ago",
+    description: "Keeps rollout notices, maintenance placeholders, and stakeholder-safe incident copy aligned.",
+    scopes: ["Public notices", "Maintenance templates", "Incident mirroring"],
+    scenarioHook: "Makes the webhook and config review feel more production-shaped without talking to a live service.",
   },
 ];
 
@@ -420,6 +509,21 @@ export const settingsSections: SettingSection[] = [
       },
     ],
   },
+  {
+    id: "approvals",
+    title: "Launch approvals",
+    summary: "How exec review, partner previews, and launch room signoff are modeled in the sandbox.",
+    status: "Stage ready",
+    items: [
+      { label: "Executive checkpoint", value: "Wed 16:00 local" },
+      { label: "Partner preview wave", value: "Beacon council sandbox" },
+      {
+        label: "Release hold policy",
+        value: "Narrative only",
+        note: "No live release controls exist; the app shows launch governance copy for demo realism.",
+      },
+    ],
+  },
 ];
 
 export const adminSignals: AdminSignal[] = [
@@ -450,12 +554,21 @@ export const adminSignals: AdminSignal[] = [
     updatedAt: "Today",
     note: "Coverage, repo fingerprint, and before/after score summaries now map cleanly to the seven seeded categories.",
   },
+  {
+    id: "sig_4",
+    title: "Shame wall preview copy approved",
+    severity: "Medium",
+    status: "Reviewing",
+    owner: "Jon Rivera",
+    updatedAt: "Today",
+    note: "The final productization pass added a more dramatic report framing without making the repo feel theatrical or unsafe.",
+  },
 ];
 
 export const dashboardHighlights = [
   {
     label: "Projects in motion",
-    value: 4,
+    value: 5,
     delta: "+1 this week",
     accent: "from-[#ff7a59] to-[#ffb38a]",
   },
@@ -467,8 +580,8 @@ export const dashboardHighlights = [
   },
   {
     label: "Unread messages",
-    value: 6,
-    delta: "War room heating up",
+    value: 7,
+    delta: "Executive recap added",
     accent: "from-[#3b82f6] to-[#93c5fd]",
   },
   {

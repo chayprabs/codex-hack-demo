@@ -2,6 +2,7 @@
   "id": "RL-TRUST-007",
   "category": "Config / CORS / frontend exposure risk",
   "title": "Browser-visible runtime labels and permissive preview notes broaden exposure review",
+  "severity": "Medium",
   "impact_summary": "Frontend bundles and public runtime values can reveal operational detail, hostnames, and allowlist intent that deserve review.",
   "file_paths": [
     ".env.example",
@@ -10,9 +11,12 @@
     "audit-fixtures/snippets/client-exposed-config.ts.disabled",
     "audit-fixtures/evidence/frontend-bundle-snapshot.json"
   ],
-  "why_this_matters": "Config review often spans both code and shipped client context, not just backend settings files.",
-  "evidence_fixture": "frontend bundle snapshot plus placeholder runtime and preview-host values",
-  "suggested_patch_summary": "Keep operational detail server-side and narrow browser-visible runtime configuration to what the client truly needs.",
-  "verification_summary": "Verified as safe because only synthetic labels and hosts are present and no permissive CORS behavior is enabled.",
-  "replay_regression_note": "Show the settings panel and the scorecard to explain how config and frontend exposure affect a TrustScore summary."
+  "why_this_matters": "Config review often spans both code and browser-visible artifacts, which makes it a useful breadth story in demos.",
+  "evidence_fixture": "frontend bundle snapshot and safe preview-origin placeholders",
+  "evidence_file": "audit-fixtures/evidence/RL-TRUST-007-config-cors-frontend-exposure.md",
+  "patch_file": "audit-fixtures/patches/RL-TRUST-007-config-cors-frontend-exposure.diff.txt",
+  "replay_file": "audit-fixtures/replay/RL-TRUST-007-config-cors-frontend-exposure.md",
+  "suggested_patch_summary": "Keep public runtime labels minimal, narrow allowlists, and move operational detail out of browser-visible config.",
+  "verification_summary": "Verified as a reviewer-owned narrative because all runtime values are synthetic placeholders and no live CORS policy exists.",
+  "replay_regression_note": "Confirm browser-visible values stay synthetic and the disabled client-exposed config snippet never becomes runtime code."
 }

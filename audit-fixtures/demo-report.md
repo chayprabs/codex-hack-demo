@@ -4,6 +4,15 @@
 
 Relaylane is a safe, local-only SaaS demo with a richer TrustLayer story layer designed for live presentation. The repository now carries seven seeded scenarios, each with a finding record, evidence note, patch summary, and replay guidance.
 
+The premium demo layer adds:
+
+- specialist agent traces
+- exportable evidence bundle artifacts
+- replay vault indexing
+- safe-to-merge summary
+- coverage-aware score artifacts
+- a machine-checkable demo verification gate
+
 ## Scenario Index
 
 | ID | Category | Best UI Anchor |
@@ -21,6 +30,8 @@ Relaylane is a safe, local-only SaaS demo with a richer TrustLayer story layer d
 - The codebase feels medium-complexity and product-shaped.
 - Findings are deterministic and easy to narrate.
 - Evidence types vary enough to feel like a real audit product.
+- Agent traces make the audit room feel active and specialized.
+- The demo kickoff APIs and verifier script make the repo feel operational, not decorative.
 - Safety is preserved because every risky clue is either synthetic, redacted, disabled, or fixture-only.
 
 ## TrustScore Story

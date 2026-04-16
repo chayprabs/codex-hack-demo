@@ -22,13 +22,22 @@ export function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+              className={`flex items-center justify-between gap-3 rounded-2xl px-4 py-3 text-sm transition ${
                 active
                   ? "bg-[var(--foreground)] text-white shadow-lg"
                   : "bg-white/60 text-[var(--foreground)] hover:bg-white"
               }`}
             >
-              <span>{item.label}</span>
+              <span className="min-w-0">
+                <span className="block font-semibold">{item.label}</span>
+                <span
+                  className={`mt-1 block text-xs ${
+                    active ? "text-white/70" : "text-[var(--ink-soft)]"
+                  }`}
+                >
+                  {item.description}
+                </span>
+              </span>
               <span className="mono text-xs">{active ? "live" : "open"}</span>
             </Link>
           );

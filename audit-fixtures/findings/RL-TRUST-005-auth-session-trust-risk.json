@@ -2,6 +2,7 @@
   "id": "RL-TRUST-005",
   "category": "Auth/session trust risk",
   "title": "Persona switch mirrors a legacy trust-by-email session shortcut",
+  "severity": "High",
   "impact_summary": "Session trust shortcuts can accumulate through email suffixes, role strings, or client-side assumptions that were meant to be temporary.",
   "file_paths": [
     "app/sign-in/page.tsx",
@@ -10,8 +11,11 @@
     "audit-fixtures/snippets/legacy-admin-session.ts.disabled"
   ],
   "why_this_matters": "The boundary between a harmless demo shortcut and a real authz regression is something teams frequently underestimate.",
-  "evidence_fixture": "disabled legacy admin session shortcut paired with safe local-only persona switching",
-  "suggested_patch_summary": "Treat all client claims as untrusted and centralize session validation on the server.",
-  "verification_summary": "Verified as safe because no real sessions or privileged claims are generated at runtime.",
-  "replay_regression_note": "Compare the safe fake-session API output with the disabled legacy shortcut and explain the difference."
+  "evidence_fixture": "trust-boundary panel plus disabled legacy admin session helper",
+  "evidence_file": "audit-fixtures/evidence/RL-TRUST-005-auth-session-trust-risk.md",
+  "patch_file": "audit-fixtures/patches/RL-TRUST-005-auth-session-trust-risk.diff.txt",
+  "replay_file": "audit-fixtures/replay/RL-TRUST-005-auth-session-trust-risk.md",
+  "suggested_patch_summary": "Keep client personas untrusted and move any privileged decision to server-side session verification.",
+  "verification_summary": "Verified as partial because the repo intentionally has no real auth provider or persistent session store.",
+  "replay_regression_note": "Confirm persona switching remains local-only and the legacy session shortcut stays disabled."
 }

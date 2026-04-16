@@ -2,6 +2,7 @@
   "id": "RL-TRUST-004",
   "category": "Webhook verification risk",
   "title": "Launch relay scenario models missing signature and replay defenses",
+  "severity": "High",
   "impact_summary": "Webhook endpoints are high-trust ingestion points, so missing signature or replay protections can have outsized impact.",
   "file_paths": [
     "app/api/webhooks/provider/route.ts",
@@ -10,7 +11,10 @@
   ],
   "why_this_matters": "Teams often add webhook endpoints quickly and only later standardize verification and replay checks.",
   "evidence_fixture": "fixture-only webhook headers and illustrative unsafe handler example",
-  "suggested_patch_summary": "Verify signatures, timestamps, event types, and replay windows before any processing.",
-  "verification_summary": "Verified as safe because only deterministic fixture payloads are accepted.",
-  "replay_regression_note": "Replay the documented fixture payload and show that the live route remains side-effect free."
+  "evidence_file": "audit-fixtures/evidence/RL-TRUST-004-webhook-verification-risk.md",
+  "patch_file": "audit-fixtures/patches/RL-TRUST-004-webhook-verification-risk.diff.txt",
+  "replay_file": "audit-fixtures/replay/RL-TRUST-004-webhook-verification-risk.md",
+  "suggested_patch_summary": "Require signature, timestamp, and replay-window validation before accepting inbound events.",
+  "verification_summary": "Verified as fixture-only and side-effect free in the live route.",
+  "replay_regression_note": "Replay with valid and invalid fixture headers and confirm non-fixture traffic is rejected."
 }

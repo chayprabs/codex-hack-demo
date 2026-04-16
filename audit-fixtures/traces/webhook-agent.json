@@ -1,0 +1,55 @@
+{
+  "id": "trace-webhook-agent",
+  "agent_name": "Webhook Verification Agent",
+  "specialty": "integration trust boundaries",
+  "focus": "Review fixture-only webhook flow, collect verification evidence, and draft replay-ready patch guidance.",
+  "status": "completed",
+  "verification_status": "replay-ready",
+  "confidence": "high",
+  "elapsed_ms": 2470,
+  "files_inspected": [
+    "app/api/webhooks/provider/route.ts",
+    "app/(workspace)/integrations/page.tsx",
+    "components/integrations/webhook-lane-panel.tsx",
+    "audit-fixtures/snippets/unsafe-webhook-handler.ts.disabled",
+    "audit-fixtures/evidence/RL-TRUST-004-webhook-verification-risk.md"
+  ],
+  "routes_noticed": [
+    "/integrations",
+    "/api/webhooks/provider"
+  ],
+  "candidate_detected": {
+    "finding_ids": [
+      "RL-TRUST-004"
+    ],
+    "summary": "Live route is safely fixture-gated, but the disabled example and replay notes create a believable verification-risk story."
+  },
+  "evidence_collected": [
+    "audit-fixtures/evidence/RL-TRUST-004-webhook-verification-risk.md",
+    "audit-fixtures/patches/RL-TRUST-004-webhook-verification-risk.diff.txt",
+    "audit-fixtures/replay/RL-TRUST-004-webhook-verification-risk.md"
+  ],
+  "suggested_patch_generated": "Require signature, timestamp, replay-window, and known-event validation before any processing branch.",
+  "status_transitions": [
+    {
+      "status": "queued",
+      "at": "2026-04-16T15:02:12+05:30",
+      "note": "Assigned to the integrations and webhook lanes."
+    },
+    {
+      "status": "scanning",
+      "at": "2026-04-16T15:02:14+05:30",
+      "note": "Inspected live route, fixture headers, and disabled unsafe handler sample."
+    },
+    {
+      "status": "candidate-confirmed",
+      "at": "2026-04-16T15:02:16+05:30",
+      "note": "Confirmed RL-TRUST-004 as a replay-ready stage scenario."
+    },
+    {
+      "status": "completed",
+      "at": "2026-04-16T15:02:17+05:30",
+      "note": "Linked patch and replay notes without introducing a live insecure path."
+    }
+  ]
+}

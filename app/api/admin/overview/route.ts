@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
-import { auditCoverage, auditManifest, auditScoreSummary } from "@/lib/audit-manifest";
+import {
+  auditAgentTraces,
+  auditCoverage,
+  auditCoverageScore,
+  auditEvidenceBundle,
+  auditManifest,
+  auditSafeToMerge,
+  auditScoreSummary,
+} from "@/lib/audit-manifest";
 import { adminSignals, projects } from "@/lib/demo-data";
 
 export async function GET() {
@@ -12,5 +20,9 @@ export async function GET() {
     ),
     trustScore: auditScoreSummary.after.score,
     coverageSummary: auditCoverage.summary,
+    verifiedFindings: auditEvidenceBundle.verification_status.verified_findings_count,
+    safeToMergeNow: auditSafeToMerge.safe_to_merge_now,
+    traceCount: auditAgentTraces.length,
+    coveragePercent: auditCoverageScore.coverage_percent,
   });
 }

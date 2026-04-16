@@ -4,21 +4,28 @@
   "framework": "Next.js 15 App Router",
   "language": "TypeScript",
   "styling": "Tailwind CSS",
-  "route_count": 10,
-  "api_route_count": 8,
+  "route_count": 11,
+  "api_route_count": 11,
   "scenario_count": 7,
   "fixture_inventory": {
     "finding_json_files": 7,
     "evidence_notes": 7,
     "patch_diff_files": 7,
-    "replay_notes": 7
+    "replay_notes": 8,
+    "trace_files": 5
   },
   "notable_paths": [
     "app/(workspace)/projects/[projectId]/page.tsx",
     "app/(workspace)/integrations/page.tsx",
     "app/(workspace)/admin/page.tsx",
+    "app/audit/[id]/page.tsx",
     "app/sign-in/page.tsx",
+    "app/api/demo-audit/route.ts",
+    "app/api/audits/[auditId]/stream/route.ts",
     "app/api/webhooks/provider/route.ts",
+    "components/audit/live-audit-room.tsx",
+    "lib/server/audit-runtime.ts",
+    "scripts/verify-demo.mjs",
     "audit-fixtures/manifest.json"
   ],
   "safe_runtime_guards": [
@@ -26,6 +33,7 @@
     "Fixture-only webhook headers",
     "No real auth or payment provider",
     "Redacted placeholder environment values",
+    "Safe fallback demo repo URL",
     "Non-executable disabled snippets"
   ]
 }

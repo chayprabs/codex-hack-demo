@@ -3,9 +3,14 @@
   "demo_safe": true,
   "generated_at": "2026-04-16",
   "coverage_file": "audit-fixtures/coverage.json",
+  "evidence_bundle_file": "audit-fixtures/evidence-bundle.json",
+  "replay_index_file": "audit-fixtures/replay/replay-index.json",
   "repo_fingerprint_file": "audit-fixtures/repo-fingerprint.json",
+  "safe_to_merge_file": "audit-fixtures/safe-to-merge.json",
+  "score_coverage_file": "audit-fixtures/score-coverage.json",
   "score_file": "audit-fixtures/score-before-after.json",
   "report_file": "audit-fixtures/demo-report.md",
+  "trace_folder": "audit-fixtures/traces",
   "findings": [
     {
       "id": "RL-TRUST-001",

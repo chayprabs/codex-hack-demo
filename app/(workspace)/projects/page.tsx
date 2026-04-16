@@ -1,3 +1,4 @@
+import { PortfolioSummary } from "@/components/projects/portfolio-summary";
 import { ProjectTable } from "@/components/projects/project-table";
 import { Pill } from "@/components/shared/pill";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -10,9 +11,10 @@ export default function ProjectsPage() {
         <SectionHeading
           eyebrow="Projects"
           title="Client launch portfolio"
-          description="A realistic mix of active, queued, and at-risk workstreams designed to make repo mapping and dashboard exploration feel rich."
+          description="A realistic mix of delivery programs, pilot lanes, and partner previews designed to make repo mapping and audit walkthroughs feel grounded."
         />
       </section>
+      <PortfolioSummary />
       <ProjectTable />
       <section className="grid gap-4 xl:grid-cols-3">
         {projects.map((project) => (

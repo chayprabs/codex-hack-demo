@@ -1,4 +1,5 @@
 import { IntegrationGrid } from "@/components/integrations/integration-grid";
+import { IntegrationPosturePanel } from "@/components/integrations/integration-posture-panel";
 import { WebhookLanePanel } from "@/components/integrations/webhook-lane-panel";
 import { SectionHeading } from "@/components/shared/section-heading";
 
@@ -12,6 +13,7 @@ export default function IntegrationsPage() {
           description="Integration cards feel realistic, but the entire surface is local-only and webhook processing is locked to fixture replays."
         />
       </section>
+      <IntegrationPosturePanel />
       <IntegrationGrid />
       <WebhookLanePanel />
       <section className="panel rounded-[28px] p-5">

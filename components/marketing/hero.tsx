@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DemoLaunchButton } from "@/components/marketing/demo-launch-button";
 import { Logo } from "@/components/shared/logo";
 import { dashboardHighlights, projects } from "@/lib/demo-data";
 
@@ -36,10 +37,11 @@ export function Hero() {
                 team, but every risky clue is deterministic, disabled, and safe for a
                 live TrustLayer product demo.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap items-start gap-4">
+                <DemoLaunchButton />
                 <Link
                   href="/dashboard"
-                  className="rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-strong)]"
+                  className="rounded-full border border-[var(--line-strong)] bg-white/70 px-6 py-3 text-sm font-semibold transition hover:bg-white"
                 >
                   Enter workspace
                 </Link>

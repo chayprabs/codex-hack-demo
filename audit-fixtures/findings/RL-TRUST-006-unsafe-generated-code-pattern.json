@@ -2,6 +2,7 @@
   "id": "RL-TRUST-006",
   "category": "Unsafe generated code pattern",
   "title": "Generated filter fragment would need review before entering the data layer",
+  "severity": "Medium",
   "impact_summary": "Generated code can look production-ready while still embedding unsafe string interpolation or trust assumptions.",
   "file_paths": [
     "audit-fixtures/snippets/raw-filter-builder.ts.disabled",
@@ -10,7 +11,10 @@
   ],
   "why_this_matters": "Generated code review is one of the most current and relatable audit stories for startup teams.",
   "evidence_fixture": "disabled raw filter builder represented as a generated helper fragment",
-  "suggested_patch_summary": "Replace string-built filters with typed helpers and keep generated code behind explicit review gates.",
-  "verification_summary": "Verified as safe because the snippet is disabled and the runtime uses static arrays.",
-  "replay_regression_note": "Show the disabled helper, then point to the patch diff that swaps it for a typed allowlisted filter."
+  "evidence_file": "audit-fixtures/evidence/RL-TRUST-006-unsafe-generated-code-pattern.md",
+  "patch_file": "audit-fixtures/patches/RL-TRUST-006-unsafe-generated-code-pattern.diff.txt",
+  "replay_file": "audit-fixtures/replay/RL-TRUST-006-unsafe-generated-code-pattern.md",
+  "suggested_patch_summary": "Replace string-built filters with typed helpers and keep generated fragments behind review gates.",
+  "verification_summary": "Verified as safe because the example remains disabled and runtime project data is array-backed.",
+  "replay_regression_note": "Confirm the disabled generated helper does not reappear in runtime routes or utility modules."
 }

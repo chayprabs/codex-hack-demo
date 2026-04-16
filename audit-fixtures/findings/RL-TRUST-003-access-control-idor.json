@@ -2,6 +2,7 @@
   "id": "RL-TRUST-003",
   "category": "Access control / IDOR-style risk",
   "title": "Project detail handles make a tenant-scope review feel necessary",
+  "severity": "High",
   "impact_summary": "Predictable project handles and route parameters are a natural place to ask whether tenant scoping is enforced.",
   "file_paths": [
     "app/(workspace)/projects/[projectId]/page.tsx",
@@ -10,8 +11,11 @@
     "audit-fixtures/snippets/project-record-loader.ts.disabled"
   ],
   "why_this_matters": "IDOR-style issues are often hiding in otherwise ordinary detail routes and JSON loaders.",
-  "evidence_fixture": "access review panel with resource handles, client scopes, and route anchors",
-  "suggested_patch_summary": "Bind record lookups to tenant-aware scope checks and switch to opaque identifiers.",
-  "verification_summary": "Verified as fixture-only with no live tenant data behind the route.",
-  "replay_regression_note": "Move between project detail pages and show how the scenario stays narrative-only, not exploitable."
+  "evidence_fixture": "project access review matrix with deterministic resource handles",
+  "evidence_file": "audit-fixtures/evidence/RL-TRUST-003-access-control-idor.md",
+  "patch_file": "audit-fixtures/patches/RL-TRUST-003-access-control-idor.diff.txt",
+  "replay_file": "audit-fixtures/replay/RL-TRUST-003-access-control-idor.md",
+  "suggested_patch_summary": "Add scope-aware record lookups, opaque resource identifiers, and explicit ownership checks.",
+  "verification_summary": "Verified as descriptive only because no tenant backend or customer data store exists.",
+  "replay_regression_note": "Check that the detail route remains mock-only and the disabled loader never enters runtime."
 }

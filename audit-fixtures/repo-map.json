@@ -65,6 +65,21 @@
         "RL-TRUST-007",
         "RL-TRUST-001"
       ]
+    },
+    {
+      "name": "Audit kickoff runtime",
+      "likely_paths": [
+        "app/audit/[id]/page.tsx",
+        "app/api/demo-audit/route.ts",
+        "app/api/audits/[auditId]/route.ts",
+        "app/api/audits/[auditId]/stream/route.ts",
+        "components/audit/live-audit-room.tsx",
+        "lib/server/audit-runtime.ts",
+        "scripts/verify-demo.mjs"
+      ],
+      "scenarios": [
+        "TS-DEMO-001"
+      ]
     }
   ]
 }

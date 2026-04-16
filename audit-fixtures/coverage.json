@@ -1,5 +1,5 @@
 {
-  "summary": "TrustLayer demo coverage is strongest on static code, fixture evidence, route-to-resource mapping, and replayable safety narratives. Production-only network and IAM validation remain intentionally out of scope.",
+  "summary": "TrustLayer demo coverage is strongest on static code, fixture evidence, route-to-resource mapping, replayable safety narratives, and a dedicated artifact consistency verifier. Production-only network and IAM validation remain intentionally out of scope.",
   "supported": [
     "Secrets / credential exposure",
     "Service/admin key handling risk",
@@ -15,9 +15,9 @@
     "Operational review process and service-account ownership semantics"
   ],
   "unsupported": [
-    "Live production IAM validation",
-    "Real third-party webhook delivery and network reachability",
-    "External secret manager, SBOM, or cloud inventory collection"
+    "Real cloud IAM validation",
+    "Third-party webhook delivery telemetry",
+    "External secret-manager inventory"
   ],
   "buckets": [
     {
@@ -48,9 +48,9 @@
       "label": "Unsupported",
       "count": 3,
       "areas": [
-        "Live network validation",
-        "Real cloud IAM posture",
-        "External asset discovery"
+        "Real cloud IAM validation",
+        "Third-party webhook delivery telemetry",
+        "External secret-manager inventory"
       ],
       "note": "Kept out of scope so the repo stays local, deterministic, and safe."
     }

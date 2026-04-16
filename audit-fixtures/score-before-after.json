@@ -6,13 +6,13 @@
   },
   "after": {
     "score": 88,
-    "label": "Demo ready",
+    "label": "Premium demo ready",
     "summary": "Seven cohesive scenarios now map cleanly across UI, API routes, evidence, patch summaries, replay notes, and coverage artifacts."
   },
   "delta": 26,
   "highlights": [
     "Each category has a clear scenario ID and a believable app anchor.",
-    "Admin, integrations, project detail, settings, and sign-in all now support strong stage narration.",
-    "Coverage, repo fingerprint, and before/after score files make the audit story feel productized."
+    "Admin, integrations, project detail, settings, sign-in, and demo kickoff APIs now support strong stage narration.",
+    "Coverage, repo fingerprint, verification gating, and before/after score files make the audit story feel productized."
   ]
 }

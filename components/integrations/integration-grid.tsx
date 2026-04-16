@@ -9,7 +9,7 @@ export function IntegrationGrid() {
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--ink-soft)]">
-                Integration
+                {integration.category} · {integration.environment}
               </p>
               <h3 className="mt-2 text-2xl font-black tracking-tight">{integration.name}</h3>
               <p className="mt-3 text-sm dense-copy">{integration.description}</p>
@@ -34,6 +34,9 @@ export function IntegrationGrid() {
             <span className="mono rounded-full bg-[var(--surface-muted)] px-3 py-1">
               Last sync {integration.lastSync}
             </span>
+          </div>
+          <div className="mt-4 rounded-[22px] bg-[var(--surface-muted)] p-4 text-sm dense-copy">
+            {integration.scenarioHook}
           </div>
         </article>
       ))}

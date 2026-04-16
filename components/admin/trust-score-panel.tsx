@@ -1,4 +1,8 @@
-import { auditCoverage, auditScoreSummary } from "@/lib/audit-manifest";
+import {
+  auditCoverage,
+  auditCoverageScore,
+  auditScoreSummary,
+} from "@/lib/audit-manifest";
 
 export function TrustScorePanel() {
   return (
@@ -21,6 +25,25 @@ export function TrustScorePanel() {
               {auditScoreSummary.after.score}
             </p>
             <p className="mt-2 text-sm dense-copy">{auditScoreSummary.after.summary}</p>
+          </article>
+          <article className="rounded-[24px] bg-white/75 p-5">
+            <p className="text-sm font-semibold">Coverage</p>
+            <p className="mt-2 text-4xl font-black tracking-tight">
+              {auditCoverageScore.coverage_percent}%
+            </p>
+            <p className="mt-2 text-sm dense-copy">
+              {auditCoverageScore.verified_findings_count} verified findings with{" "}
+              {auditCoverageScore.unsupported_areas.length} unsupported areas called
+              out explicitly.
+            </p>
+          </article>
+          <article className="rounded-[24px] bg-white/75 p-5">
+            <p className="text-sm font-semibold">Confidence</p>
+            <div className="mt-2 space-y-2 text-sm dense-copy">
+              {auditCoverageScore.confidence_notes.map((note) => (
+                <p key={note}>{note}</p>
+              ))}
+            </div>
           </article>
           <article className="rounded-[24px] bg-[linear-gradient(135deg,rgba(255,122,89,0.18),rgba(14,165,164,0.18))] p-5 md:col-span-2">
             <p className="text-sm font-semibold">Narration hook</p>

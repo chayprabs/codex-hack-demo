@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuditRoomPreview } from "@/components/dashboard/audit-room-preview";
 import { ProjectRadar } from "@/components/dashboard/project-radar";
 import { Scoreboard } from "@/components/dashboard/scoreboard";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -17,12 +18,13 @@ export default function DashboardPage() {
               href="/projects"
               className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white"
             >
-              Review projects
+              Review portfolio
             </Link>
           }
         />
       </section>
       <Scoreboard />
+      <AuditRoomPreview />
       <ProjectRadar />
       <div className="grid gap-4 xl:grid-cols-2">
         <section className="panel rounded-[28px] p-5">
