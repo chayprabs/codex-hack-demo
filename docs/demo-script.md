@@ -5,7 +5,7 @@
 1. Open `/admin` and frame Relaylane as a safe, deterministic audit target.
 2. Point at the live audit kickoff panel and explain the seeded flow:
    - `POST /api/demo-audit`
-   - `Open /audit/[id]`
+   - `Open the returned open_url`
    - `GET /api/audits/[auditId]`
    - `GET /api/audits/[auditId]/stream`
 3. Call out the TrustScore lift, coverage percentage, and safe-to-merge decision.
@@ -18,7 +18,7 @@
 ## What To Click
 
 - `/admin`
-- `/audit/[id]`
+- `open_url` from `POST /api/demo-audit`
 - `/integrations`
 - `/projects/meridian-mobile`
 - `/sign-in`

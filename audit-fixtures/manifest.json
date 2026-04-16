@@ -1,5 +1,5 @@
 {
-  "repo": "trustlayer-demo-app",
+  "repo": "relaylane-trustlayer-demo",
   "demo_safe": true,
   "generated_at": "2026-04-16",
   "coverage_file": "audit-fixtures/coverage.json",

@@ -113,6 +113,7 @@ async function scanForForbiddenPatterns() {
 }
 
 async function main() {
+  const packageJson = await readJson("package.json");
   const manifest = await readJson("audit-fixtures/manifest.json");
   const coverage = await readJson("audit-fixtures/coverage.json");
   const repoMap = await readJson("audit-fixtures/repo-map.json");
@@ -122,11 +123,31 @@ async function main() {
   const scoreCoverage = await readJson("audit-fixtures/score-coverage.json");
   const scoreBeforeAfter = await readJson("audit-fixtures/score-before-after.json");
   const repoFingerprint = await readJson("audit-fixtures/repo-fingerprint.json");
+  const dependencySnapshot = await readJson("audit-fixtures/evidence/dependency-snapshot.json");
   const readme = await readText("README.md");
   const envExample = await readText(".env.example");
+  const demoHighlights = await readText("docs/demo-highlights.md");
+  const demoScript = await readText("docs/demo-script.md");
+  const demoAuditRoute = await readText("app/api/demo-audit/route.ts");
+  const typeDefinitions = await readText("lib/types.ts");
+  const repoName = packageJson.name;
 
   expect(manifest.demo_safe === true, "Manifest must declare demo_safe: true.");
   expect(manifest.findings.length === 7, "Manifest must contain exactly 7 seeded findings.");
+  expect(manifest.repo === repoName, "Manifest repo name must match package.json.");
+  expect(repoMap.repo === repoName, "Repo map repo name must match package.json.");
+  expect(
+    evidenceBundle.repo === repoName,
+    "Evidence bundle repo name must match package.json.",
+  );
+  expect(
+    repoFingerprint.repo === repoName,
+    "Repo fingerprint repo name must match package.json.",
+  );
+  expect(
+    dependencySnapshot.repo === repoName,
+    "Dependency snapshot repo name must match package.json.",
+  );
 
   const manifestIds = manifest.findings.map((finding) => finding.id);
   const manifestCategories = manifest.findings.map((finding) => finding.category);
@@ -313,6 +334,8 @@ async function main() {
     "## What The Audit Is Expected To Find",
     "## How The Demo Stays Safe",
     "## How To Run Locally",
+    "## Fastest Live Demo Path",
+    "## Top 5 Strongest Demo Assets",
   ];
 
   for (const section of requiredReadmeSections) {
@@ -334,6 +357,31 @@ async function main() {
   for (const envVar of requiredEnvVars) {
     expect(envExample.includes(`${envVar}=`), `.env.example is missing ${envVar}.`);
   }
+
+  expect(
+    envExample.includes("No value in this file is a live credential."),
+    ".env.example should explain that all values are safe placeholders.",
+  );
+  expect(
+    demoHighlights.includes("## Exact Fastest Live Demo Path"),
+    "docs/demo-highlights.md is missing the fastest live demo path section.",
+  );
+  expect(
+    demoHighlights.includes("## Top 5 Strongest Demo Assets"),
+    "docs/demo-highlights.md is missing the strongest demo assets section.",
+  );
+  expect(
+    demoScript.includes("open_url"),
+    "docs/demo-script.md should mention open_url for the fastest audit-room handoff.",
+  );
+  expect(
+    demoAuditRoute.includes("open_url"),
+    "POST /api/demo-audit should return open_url for the live room.",
+  );
+  expect(
+    typeDefinitions.includes("open_url: string"),
+    "Audit launch response types should include open_url.",
+  );
 
   await scanForForbiddenPatterns();
 

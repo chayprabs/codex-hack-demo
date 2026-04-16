@@ -1,5 +1,5 @@
 {
-  "repo": "trustlayer-demo-app",
+  "repo": "relaylane-trustlayer-demo",
   "audit_mode": "seeded-safe-demo-target",
   "frameworks_detected": [
     "Next.js 15",

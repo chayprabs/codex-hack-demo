@@ -2,7 +2,7 @@
 
 ## Audit Package
 
-- Repo: `trustlayer-demo-app`
+- Repo: `relaylane-trustlayer-demo`
 - Audit mode: `seeded-safe-demo-target`
 - Frameworks detected: Next.js 15, TypeScript, App Router, Tailwind CSS
 - TrustScore: 88 (`Premium demo ready`)

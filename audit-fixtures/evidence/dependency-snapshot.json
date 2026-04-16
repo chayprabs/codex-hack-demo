@@ -1,6 +1,6 @@
 {
   "capturedAt": "2026-04-16",
-  "repo": "trustlayer-demo-app",
+  "repo": "relaylane-trustlayer-demo",
   "actualRuntimeStatus": "patched",
   "illustrativeReviewNotes": [
     "Pinned framework versions should be reviewed during upgrades.",

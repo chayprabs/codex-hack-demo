@@ -394,7 +394,9 @@ export interface AuditDetail {
 export interface AuditLaunchResponse {
   audit_id: string;
   repo_url: string;
+  repo_url_source: "env" | "safe-default";
   status: AuditStatus;
+  open_url: string;
   stream_url: string;
   mode: AuditMode;
 }

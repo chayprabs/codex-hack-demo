@@ -54,6 +54,10 @@ export function DemoAuditLaunchPanel() {
             Demo audit creation stays local and deterministic. The repo URL is narrative
             input only and does not trigger live GitHub ingestion.
           </p>
+          <p className="mt-2 text-sm dense-copy">
+            The response includes an <span className="mono">open_url</span> so the
+            fastest live handoff is straight into the audit room.
+          </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             <div className="rounded-[20px] bg-[var(--surface-muted)] p-3 text-sm">
               <p className="font-semibold">Source</p>
@@ -69,10 +73,12 @@ export function DemoAuditLaunchPanel() {
             <pre className="mt-3 overflow-x-auto text-xs">
 {`{
   "audit_id": "audit_demo_...",
+  "repo_url_source": "safe-default",
   "mode": "demo",
   "status": "queued",
+  "open_url": "/audit/<id>",
   "stream_url": "/api/audits/<id>/stream",
-  "open_url": "/audit/<id>"
+  "repo_url": "${repoUrl}"
 }`}
             </pre>
           </div>

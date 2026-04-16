@@ -20,9 +20,10 @@ export function DemoLaunchButton() {
 
     try {
       const audit = await createDemoAudit();
+      const openUrl = audit.open_url ?? `/audit/${audit.audit_id}`;
 
       startTransition(() => {
-        router.push(`/audit/${audit.audit_id}` as Route);
+        router.push(openUrl as Route);
       });
     } catch (launchError) {
       setError(

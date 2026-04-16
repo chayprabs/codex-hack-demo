@@ -10,6 +10,28 @@ This file is the quick narration guide for the most convincing parts of the Rela
 4. `RL-TRUST-005` Session trust shortcut in the fake sign-in boundary
 5. `RL-TRUST-007` Frontend exposure posture across controls and client-visible settings
 
+## Exact Fastest Live Demo Path
+
+1. Run `npm run verify:demo`
+2. Start the app with `npm run dev`
+3. Open `/admin`
+4. Use the live audit kickoff panel or `POST /api/demo-audit`
+5. Open the returned `open_url`
+6. Jump to `/integrations`, then `/projects/meridian-mobile`, then `/sign-in`
+
+## Top 5 Strongest Demo Assets
+
+1. `/admin`
+   One-screen control room with kickoff, TrustScore, evidence, traces, and merge-readiness.
+2. `/audit/[id]`
+   Best live moment once the seeded audit starts because it feels like an active product, not a static report.
+3. `/integrations` plus `/api/webhooks/provider`
+   Cleanest route-to-finding story for `RL-TRUST-004`.
+4. `/projects/meridian-mobile`
+   Strongest product-shaped anchor for the access-scope / IDOR narrative.
+5. `audit-fixtures/evidence-bundle.md`
+   Best fallback artifact when you want a polished exportable report moment without relying on runtime pacing.
+
 ## Best Narration Order
 
 1. Start with `RL-TRUST-004`

@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
-const demoSignature = process.env.DEMO_WEBHOOK_SIGNATURE ?? "fixture-safe-demo";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+function getDemoSignature() {
+  return process.env.DEMO_WEBHOOK_SIGNATURE?.trim() || "fixture-safe-demo";
+}
 
 export async function GET() {
   return NextResponse.json({
@@ -8,7 +13,7 @@ export async function GET() {
     acceptsExternalTraffic: false,
     requiredHeaders: {
       "x-demo-source": "fixture-runner",
-      "x-demo-signature": demoSignature,
+      "x-demo-signature": getDemoSignature(),
     },
     note: "This route exists for local replay demos only and does not trigger real side effects.",
   });
@@ -18,6 +23,7 @@ export async function POST(request: Request) {
   const signature = request.headers.get("x-demo-signature");
   const source = request.headers.get("x-demo-source");
   const payload = await request.json().catch(() => null);
+  const demoSignature = getDemoSignature();
 
   if (signature !== demoSignature || source !== "fixture-runner") {
     return NextResponse.json(

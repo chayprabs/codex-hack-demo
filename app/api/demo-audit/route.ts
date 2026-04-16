@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 export async function POST() {
   const repoUrl = getDemoRepoUrl();
   const audit = createDemoAudit(repoUrl);
+  const openUrl = `/audit/${audit.audit_id}`;
 
   return NextResponse.json(
     {
@@ -15,6 +16,7 @@ export async function POST() {
       repo_url: audit.repo_url,
       repo_url_source: isCustomDemoRepoUrlConfigured() ? "env" : "safe-default",
       status: audit.status,
+      open_url: openUrl,
       stream_url: audit.stream_url,
       mode: audit.mode,
     },

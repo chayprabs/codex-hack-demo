@@ -1,6 +1,6 @@
 # Audit Fixtures
 
-This folder is the safe TrustLayer demo layer for `trustlayer-demo-app`.
+This folder is the safe TrustLayer demo layer for `relaylane-trustlayer-demo`.
 
 Principles:
 
