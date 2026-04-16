@@ -1,0 +1,8 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+export const adminServicePreview = {
+  alias: "svc_demo_redacted_ops_exporter",
+  intendedScope: ["launch-packets:read", "evidence-bundles:write"],
+  note: "Illustrative preview only. No live service key is stored in the repository.",
+};

@@ -1,0 +1,11 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+export function loadProjectRecordByRoute(projectId: string) {
+  // In a real unsafe implementation, this kind of direct route-to-record access
+  // could skip tenant scoping. Here it exists only as a static demo artifact.
+  return {
+    projectId,
+    scopeCheck: "missing-in-example-only",
+  };
+}

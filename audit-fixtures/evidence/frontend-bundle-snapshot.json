@@ -1,0 +1,9 @@
+{
+  "bundle": "dashboard-shell.demo.js",
+  "exposedMetadata": {
+    "workspaceId": "ws_relayscale",
+    "supportAlias": "ops-demo@demo.local",
+    "runbookSlug": "launch-room-playbook"
+  },
+  "notes": "This is handcrafted evidence for demo audits. It is not generated from a production bundle and contains no secrets."
+}

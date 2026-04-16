@@ -1,0 +1,9 @@
+{
+  "area": "ai-escalation-workflow",
+  "reviewPrompts": [
+    "Confirm the escalation copy does not imply automated decisions are final.",
+    "Check that human approval steps remain documented in the admin surface.",
+    "Verify evidence expectations for unsupported analysis paths."
+  ],
+  "notes": "Manual review fixture for TrustLayer demos only."
+}

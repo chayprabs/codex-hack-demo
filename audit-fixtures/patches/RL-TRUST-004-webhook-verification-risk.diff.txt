@@ -1,0 +1,10 @@
+--- a/api/webhooks/provider/handler.ts
++++ b/api/webhooks/provider/handler.ts
+@@
+- processEvent(body)
++ verifySignature(headers)
++ verifyTimestamp(headers)
++ rejectReplay(headers)
++ processKnownEvent(body)
+
+Patch summary: add signature, timestamp, replay, and event allowlist checks before processing.

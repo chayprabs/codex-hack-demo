@@ -1,0 +1,18 @@
+{
+  "before": {
+    "score": 62,
+    "label": "Needs review",
+    "summary": "The repo already looked polished, but the audit layer only hinted at a few findings and did not yet give judges a full end-to-end story."
+  },
+  "after": {
+    "score": 88,
+    "label": "Demo ready",
+    "summary": "Seven cohesive scenarios now map cleanly across UI, API routes, evidence, patch summaries, replay notes, and coverage artifacts."
+  },
+  "delta": 26,
+  "highlights": [
+    "Each category has a clear scenario ID and a believable app anchor.",
+    "Admin, integrations, project detail, settings, and sign-in all now support strong stage narration.",
+    "Coverage, repo fingerprint, and before/after score files make the audit story feel productized."
+  ]
+}

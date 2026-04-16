@@ -1,0 +1,16 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+type LegacySession = {
+  email?: string;
+  role?: string;
+};
+
+export function deriveAdmin(session: LegacySession) {
+  // In a real insecure system, a permissive check like this could create an authz bug.
+  if (session.email?.endsWith("@trusted-partner.example")) {
+    return { role: "admin", source: "legacy-trust-shortcut" };
+  }
+
+  return { role: session.role ?? "viewer", source: "declared-role" };
+}

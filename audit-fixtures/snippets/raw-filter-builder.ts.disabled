@@ -1,0 +1,7 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+export function buildRiskyFilter(ownerInput: string) {
+  // Pattern example only: unsafe interpolation in a query-like string.
+  return `owner = '${ownerInput}' AND archived = false`;
+}

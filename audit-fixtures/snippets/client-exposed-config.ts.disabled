@@ -1,0 +1,9 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+export const demoClientConfig = {
+  publicSupportMailbox: "ops-demo@demo.local",
+  internalRunbookSlug: "launch-room-playbook",
+  // This looks credential-like on purpose but is fake and unusable.
+  fakeTokenPreview: "demo_public_preview_xxxx_redacted",
+};

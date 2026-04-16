@@ -1,0 +1,31 @@
+{
+  "repo": "trustlayer-demo-app",
+  "captured_at": "2026-04-16",
+  "framework": "Next.js 15 App Router",
+  "language": "TypeScript",
+  "styling": "Tailwind CSS",
+  "route_count": 10,
+  "api_route_count": 8,
+  "scenario_count": 7,
+  "fixture_inventory": {
+    "finding_json_files": 7,
+    "evidence_notes": 7,
+    "patch_diff_files": 7,
+    "replay_notes": 7
+  },
+  "notable_paths": [
+    "app/(workspace)/projects/[projectId]/page.tsx",
+    "app/(workspace)/integrations/page.tsx",
+    "app/(workspace)/admin/page.tsx",
+    "app/sign-in/page.tsx",
+    "app/api/webhooks/provider/route.ts",
+    "audit-fixtures/manifest.json"
+  ],
+  "safe_runtime_guards": [
+    "Local mock data only",
+    "Fixture-only webhook headers",
+    "No real auth or payment provider",
+    "Redacted placeholder environment values",
+    "Non-executable disabled snippets"
+  ]
+}

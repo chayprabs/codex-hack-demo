@@ -1,0 +1,488 @@
+import type {
+  ActivityEvent,
+  AdminSignal,
+  Integration,
+  MessageThread,
+  Project,
+  SettingSection,
+  User,
+} from "@/lib/types";
+
+export const demoWorkspace = {
+  name: "Relaylane",
+  slogan: "Launch planning for product teams that ship under pressure.",
+  workspaceId: "ws_relayscale",
+  plan: "Growth Sandbox",
+  auditMode: "Seeded demo fixtures active",
+};
+
+export const users: User[] = [
+  {
+    id: "user_mina",
+    name: "Mina Patel",
+    role: "Product lead",
+    email: "mina@demo.local",
+    team: "Launch Ops",
+    location: "Bengaluru",
+    initials: "MP",
+    availability: "online",
+  },
+  {
+    id: "user_jon",
+    name: "Jon Rivera",
+    role: "Client strategist",
+    email: "jon@demo.local",
+    team: "Accounts",
+    location: "Austin",
+    initials: "JR",
+    availability: "focus",
+  },
+  {
+    id: "user_lina",
+    name: "Lina Cho",
+    role: "Engineering manager",
+    email: "lina@demo.local",
+    team: "Platform",
+    location: "Seoul",
+    initials: "LC",
+    availability: "online",
+  },
+  {
+    id: "user_omar",
+    name: "Omar Hassan",
+    role: "Support ops",
+    email: "omar@demo.local",
+    team: "Support",
+    location: "Cairo",
+    initials: "OH",
+    availability: "offline",
+  },
+  {
+    id: "user_sage",
+    name: "Sage Bryant",
+    role: "TrustLayer champion",
+    email: "sage@demo.local",
+    team: "Security",
+    location: "Denver",
+    initials: "SB",
+    availability: "online",
+  },
+];
+
+export const projects: Project[] = [
+  {
+    id: "apollo-redesign",
+    name: "Apollo Redesign",
+    client: "Northstar Health",
+    vertical: "Healthcare",
+    status: "On track",
+    health: "excellent",
+    ownerId: "user_mina",
+    budget: 68000,
+    spent: 43100,
+    progress: 74,
+    nextMilestone: "Stakeholder review on Apr 22",
+    summary:
+      "A rapid redesign sprint for a clinician scheduling portal with launch-readiness reporting built in.",
+    launchWindow: "Q2 launch train",
+    squad: ["Design", "Platform", "Support"],
+    tags: ["Enterprise", "UX refresh", "Priority"],
+    resourceHandle: "proj_demo_apollo_redesign",
+    clientSpace: "northstar-health/sandbox-approvers",
+    viewerPolicy: "Invite-only fixture reviewers",
+    openTasks: 12,
+    blockers: ["Waiting on final pricing copy", "Vendor sandbox assets arrive Friday"],
+    checklist: [
+      { label: "Approval deck assembled", done: true },
+      { label: "Customer beta signoff", done: true },
+      { label: "Launch dry run", done: false },
+      { label: "Support macros updated", done: false },
+    ],
+    updates: [
+      "Resolved navigation debt and cut onboarding drop-off by 18% in mock analytics.",
+      "Security audit demo fixtures linked for stakeholder walkthrough.",
+    ],
+  },
+  {
+    id: "meridian-mobile",
+    name: "Meridian Mobile",
+    client: "Meridian Capital",
+    vertical: "Fintech",
+    status: "Needs review",
+    health: "watch",
+    ownerId: "user_lina",
+    budget: 92000,
+    spent: 70400,
+    progress: 58,
+    nextMilestone: "Compliance signoff on Apr 19",
+    summary:
+      "A multi-workstream mobile release with premium dashboard widgets, beta cohorts, and operational fallback plans.",
+    launchWindow: "May release window",
+    squad: ["Mobile", "Compliance", "QA"],
+    tags: ["Mobile", "Compliance", "Executive"],
+    resourceHandle: "proj_demo_meridian_mobile",
+    clientSpace: "meridian-capital/compliance-review",
+    viewerPolicy: "Internal review lane",
+    openTasks: 19,
+    blockers: ["Pending legal copy review", "Device matrix still red on one Android build"],
+    checklist: [
+      { label: "Pilot cohort loaded", done: true },
+      { label: "Ops playbook reviewed", done: false },
+      { label: "Help center updates approved", done: false },
+      { label: "Incident channel rehearsed", done: true },
+    ],
+    updates: [
+      "Beta cohort feedback is positive, but compliance wording needs one more pass.",
+      "Audit fixture for webhook verification is ready for TrustLayer demos.",
+    ],
+  },
+  {
+    id: "tandem-retention",
+    name: "Tandem Retention",
+    client: "Tandem Commerce",
+    vertical: "Retail",
+    status: "In delivery",
+    health: "stable",
+    ownerId: "user_jon",
+    budget: 54000,
+    spent: 36750,
+    progress: 66,
+    nextMilestone: "CRM automation handoff on Apr 24",
+    summary:
+      "Lifecycle messaging overhaul with refreshed dashboards, attribution tagging, and playbook documentation.",
+    launchWindow: "Always-on optimization",
+    squad: ["Lifecycle", "Data", "Support"],
+    tags: ["CRM", "Growth", "Automation"],
+    resourceHandle: "proj_demo_tandem_retention",
+    clientSpace: "tandem-commerce/growth-ops",
+    viewerPolicy: "Lifecycle squad fixture",
+    openTasks: 8,
+    blockers: ["Awaiting final event naming map"],
+    checklist: [
+      { label: "Journey mapping frozen", done: true },
+      { label: "Analytics taxonomy ratified", done: true },
+      { label: "QA send matrix", done: false },
+      { label: "Enablement session recorded", done: false },
+    ],
+    updates: [
+      "Lifecycle drafts approved and queued for staged rollout.",
+      "Admin dashboard now shows deterministic seeded findings counts.",
+    ],
+  },
+  {
+    id: "orbit-support-copilot",
+    name: "Orbit Support Copilot",
+    client: "Orbit Logistics",
+    vertical: "Operations",
+    status: "Queued",
+    health: "at-risk",
+    ownerId: "user_omar",
+    budget: 48000,
+    spent: 11900,
+    progress: 21,
+    nextMilestone: "Rescoping workshop on Apr 18",
+    summary:
+      "An AI-assisted support cockpit demo with queue routing, warm handoff notes, and launch command center visuals.",
+    launchWindow: "Pilot after scope reset",
+    squad: ["Support", "Data", "Platform"],
+    tags: ["AI assist", "Support", "Pilot"],
+    resourceHandle: "proj_demo_orbit_support_copilot",
+    clientSpace: "orbit-logistics/internal-pilot",
+    viewerPolicy: "Pilot-only sandbox",
+    openTasks: 23,
+    blockers: ["Scope reduced to internal pilot", "Training dataset still mocked"],
+    checklist: [
+      { label: "Use cases prioritized", done: true },
+      { label: "Pilot script approved", done: false },
+      { label: "Replay fixtures seeded", done: true },
+      { label: "Budget hold released", done: false },
+    ],
+    updates: [
+      "Pilot scope trimmed to keep the build demo-friendly and deterministic.",
+      "Manual-review fixture added for the AI escalation workflow.",
+    ],
+  },
+];
+
+export const messageThreads: MessageThread[] = [
+  {
+    id: "thread-launch-war-room",
+    channel: "Launch war room",
+    topic: "Go-live checklist and comms cadence",
+    participants: ["user_mina", "user_lina", "user_sage"],
+    projectId: "apollo-redesign",
+    unreadCount: 2,
+    lastMessageAt: "14:20 UTC",
+    messages: [
+      {
+        id: "msg_1",
+        senderId: "user_mina",
+        sentAt: "13:10 UTC",
+        body: "Deck is locked. Need one more pass on the dry run notes before tomorrow.",
+      },
+      {
+        id: "msg_2",
+        senderId: "user_sage",
+        sentAt: "13:42 UTC",
+        body: "TrustLayer demo fixtures are linked and safe to replay in front of judges.",
+      },
+      {
+        id: "msg_3",
+        senderId: "user_lina",
+        sentAt: "14:20 UTC",
+        body: "I'll cover the launch rehearsal and keep the support handoff visible on the dashboard.",
+      },
+    ],
+  },
+  {
+    id: "thread-fintech-risk",
+    channel: "Fintech risk lane",
+    topic: "Mobile compliance copy and webhook audit notes",
+    participants: ["user_lina", "user_jon", "user_sage"],
+    projectId: "meridian-mobile",
+    unreadCount: 0,
+    lastMessageAt: "11:05 UTC",
+    messages: [
+      {
+        id: "msg_4",
+        senderId: "user_sage",
+        sentAt: "09:55 UTC",
+        body: "Webhook route is locked to fixture headers only. The seeded finding lives in disabled snippets, not runtime code.",
+      },
+      {
+        id: "msg_5",
+        senderId: "user_jon",
+        sentAt: "10:25 UTC",
+        body: "Perfect. That still gives us a realistic audit trail without a deployable risk.",
+      },
+      {
+        id: "msg_6",
+        senderId: "user_lina",
+        sentAt: "11:05 UTC",
+        body: "Compliance wants the admin export notice and RL-TRUST-002 service-key story moved above the fold. I'll patch that this afternoon.",
+      },
+    ],
+  },
+  {
+    id: "thread-support-pilot",
+    channel: "Support pilot",
+    topic: "Internal-only AI copilot pilot prep",
+    participants: ["user_omar", "user_mina"],
+    projectId: "orbit-support-copilot",
+    unreadCount: 4,
+    lastMessageAt: "08:45 UTC",
+    messages: [
+      {
+        id: "msg_7",
+        senderId: "user_omar",
+        sentAt: "08:10 UTC",
+        body: "Added manual-review notes so auditors know the AI escalation path is intentionally out of scope for automation.",
+      },
+      {
+        id: "msg_8",
+        senderId: "user_mina",
+        sentAt: "08:45 UTC",
+        body: "Nice. Let's keep the pilot visuals polished even though the backend stays fixture-only.",
+      },
+    ],
+  },
+];
+
+export const activityLog: ActivityEvent[] = [
+  {
+    id: "act_1",
+    actorId: "user_mina",
+    title: "Launch deck locked",
+    detail: "Apollo Redesign handoff deck was frozen for stakeholder review.",
+    kind: "launch",
+    happenedAt: "15 minutes ago",
+    projectId: "apollo-redesign",
+  },
+  {
+    id: "act_2",
+    actorId: "user_sage",
+    title: "Fixture manifest refreshed",
+    detail: "Updated TrustLayer manifest confidence values after replay review.",
+    kind: "quality",
+    happenedAt: "42 minutes ago",
+  },
+  {
+    id: "act_3",
+    actorId: "user_lina",
+    title: "Compliance lane escalated",
+    detail: "Meridian Mobile copy review escalated to executive approvers and access-scope narration was added for RL-TRUST-003.",
+    kind: "ops",
+    happenedAt: "1 hour ago",
+    projectId: "meridian-mobile",
+  },
+  {
+    id: "act_4",
+    actorId: "user_jon",
+    title: "Lifecycle mapping approved",
+    detail: "Tandem Retention event taxonomy was approved by data ops.",
+    kind: "task",
+    happenedAt: "3 hours ago",
+    projectId: "tandem-retention",
+  },
+  {
+    id: "act_5",
+    actorId: "user_omar",
+    title: "Pilot scope narrowed",
+    detail: "Orbit Support Copilot shifted to internal-only demo mode and manual service-key handling references were replaced with redacted aliases.",
+    kind: "ops",
+    happenedAt: "Today",
+    projectId: "orbit-support-copilot",
+  },
+];
+
+export const integrations: Integration[] = [
+  {
+    id: "linear",
+    name: "Linear",
+    status: "Connected",
+    syncHealth: "excellent",
+    owner: "Lina Cho",
+    lastSync: "4 minutes ago",
+    description: "Mirrors launch issues and keeps project burndown cards fresh.",
+    scopes: ["Roadmap sync", "Sprint status", "Owner handoff"],
+  },
+  {
+    id: "slack",
+    name: "Slack",
+    status: "Connected",
+    syncHealth: "stable",
+    owner: "Mina Patel",
+    lastSync: "11 minutes ago",
+    description: "Broadcasts launch milestones and seeds war room channels.",
+    scopes: ["Alerts", "Approvals", "Incident routing"],
+  },
+  {
+    id: "hubspot",
+    name: "HubSpot",
+    status: "Sandbox",
+    syncHealth: "watch",
+    owner: "Jon Rivera",
+    lastSync: "Yesterday",
+    description: "Demo-only CRM mirroring with non-production contact fixtures.",
+    scopes: ["Lifecycle sync", "Executive rollups"],
+  },
+  {
+    id: "sentry",
+    name: "Sentry",
+    status: "Needs attention",
+    syncHealth: "watch",
+    owner: "Sage Bryant",
+    lastSync: "2 days ago",
+    description: "Tracks mock release regressions and maps them to review queues.",
+    scopes: ["Release alerts", "Trace snapshots"],
+  },
+];
+
+export const settingsSections: SettingSection[] = [
+  {
+    id: "workspace",
+    title: "Workspace controls",
+    summary: "Define how teams, naming, and release rituals behave in the demo app.",
+    status: "Healthy",
+    items: [
+      { label: "Default launch owner", value: "Mina Patel" },
+      { label: "Client visibility", value: "Invite-only" },
+      {
+        label: "Data retention",
+        value: "Mock local data",
+        note: "No external storage or real customer records are used.",
+      },
+    ],
+  },
+  {
+    id: "notifications",
+    title: "Notifications",
+    summary: "Message lanes and digest timing for launch-critical updates.",
+    status: "Tuned",
+    items: [
+      { label: "Morning digest", value: "08:30 local" },
+      { label: "Incident broadcast", value: "Slack + dashboard banner" },
+      { label: "Executive summary", value: "Daily at 17:00 local" },
+    ],
+  },
+  {
+    id: "security",
+    title: "Security posture",
+    summary: "Demo-safe controls that explain the audit-ready design choices.",
+    status: "Fixture mode",
+    items: [
+      { label: "Session mode", value: "Fake local demo session" },
+      { label: "Webhook mode", value: "Fixture headers only" },
+      {
+        label: "Audit fixtures",
+        value: "Enabled",
+        note: "Seeded findings live in audit-fixtures and disabled snippets.",
+      },
+    ],
+  },
+];
+
+export const adminSignals: AdminSignal[] = [
+  {
+    id: "sig_1",
+    title: "Service utility review queued for replay lane",
+    severity: "High",
+    status: "Open",
+    owner: "Sage Bryant",
+    updatedAt: "10 minutes ago",
+    note: "Admin utilities panel now anchors the service/admin key handling scenario with redacted aliases only.",
+  },
+  {
+    id: "sig_2",
+    title: "Project access narration needs final review",
+    severity: "Medium",
+    status: "Reviewing",
+    owner: "Lina Cho",
+    updatedAt: "1 hour ago",
+    note: "Meridian Mobile is being used to demo RL-TRUST-003, so route labels and resource handles need to stay consistent.",
+  },
+  {
+    id: "sig_3",
+    title: "TrustScore story pack verified",
+    severity: "Low",
+    status: "Closed",
+    owner: "Sage Bryant",
+    updatedAt: "Today",
+    note: "Coverage, repo fingerprint, and before/after score summaries now map cleanly to the seven seeded categories.",
+  },
+];
+
+export const dashboardHighlights = [
+  {
+    label: "Projects in motion",
+    value: 4,
+    delta: "+1 this week",
+    accent: "from-[#ff7a59] to-[#ffb38a]",
+  },
+  {
+    label: "Launch readiness",
+    value: 82,
+    delta: "12 pts above last sprint",
+    accent: "from-[#0ea5a4] to-[#7de2dc]",
+  },
+  {
+    label: "Unread messages",
+    value: 6,
+    delta: "War room heating up",
+    accent: "from-[#3b82f6] to-[#93c5fd]",
+  },
+  {
+    label: "Seeded audit findings",
+    value: 7,
+    delta: "All deterministic and replayable",
+    accent: "from-[#f59e0b] to-[#fde68a]",
+  },
+];
+
+export function getUserById(userId: string) {
+  return users.find((user) => user.id === userId);
+}
+
+export function getProjectById(projectId: string) {
+  return projects.find((project) => project.id === projectId);
+}

@@ -1,0 +1,8 @@
+--- a/auth/session-trust.ts
++++ b/auth/session-trust.ts
+@@
+- if (session.email.endsWith("@trusted-partner.example")) role = "admin"
++ const verifiedSession = verifyServerSideSession(sessionToken)
++ role = deriveRoleFromPolicy(verifiedSession)
+
+Patch summary: move trust decisions server-side and derive authorization from policy, not client claims.

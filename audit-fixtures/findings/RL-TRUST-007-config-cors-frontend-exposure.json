@@ -1,0 +1,18 @@
+{
+  "id": "RL-TRUST-007",
+  "category": "Config / CORS / frontend exposure risk",
+  "title": "Browser-visible runtime labels and permissive preview notes broaden exposure review",
+  "impact_summary": "Frontend bundles and public runtime values can reveal operational detail, hostnames, and allowlist intent that deserve review.",
+  "file_paths": [
+    ".env.example",
+    "app/(workspace)/settings/page.tsx",
+    "components/settings/exposure-surface-panel.tsx",
+    "audit-fixtures/snippets/client-exposed-config.ts.disabled",
+    "audit-fixtures/evidence/frontend-bundle-snapshot.json"
+  ],
+  "why_this_matters": "Config review often spans both code and shipped client context, not just backend settings files.",
+  "evidence_fixture": "frontend bundle snapshot plus placeholder runtime and preview-host values",
+  "suggested_patch_summary": "Keep operational detail server-side and narrow browser-visible runtime configuration to what the client truly needs.",
+  "verification_summary": "Verified as safe because only synthetic labels and hosts are present and no permissive CORS behavior is enabled.",
+  "replay_regression_note": "Show the settings panel and the scorecard to explain how config and frontend exposure affect a TrustScore summary."
+}

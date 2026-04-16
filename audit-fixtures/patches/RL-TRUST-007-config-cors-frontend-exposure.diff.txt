@@ -1,0 +1,9 @@
+--- a/config/runtime.ts
++++ b/config/runtime.ts
+@@
+- export const allowedOrigins = process.env.DEMO_ALLOWED_ORIGINS?.split(",")
+- export const embedPreviewHost = process.env.NEXT_PUBLIC_EMBED_PREVIEW_HOST
++ export const allowedOrigins = getServerOwnedAllowlist("demo")
++ export const embedPreviewHostLabel = "preview-host-hidden-from-browser"
+
+Patch summary: keep allowlists server-owned and trim operational host detail from browser-visible config.

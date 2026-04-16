@@ -1,0 +1,16 @@
+{
+  "id": "RL-TRUST-002",
+  "category": "Service/admin key handling risk",
+  "title": "Admin utilities reference a redacted service alias with broad operational scope",
+  "impact_summary": "Operational helper utilities often concentrate export, replay, and notice-publishing capabilities behind a single service identity.",
+  "file_paths": [
+    "components/admin/service-utility-panel.tsx",
+    "audit-fixtures/snippets/admin-key-preview.ts.disabled",
+    ".env.example"
+  ],
+  "why_this_matters": "A single service key can quietly become the most powerful credential in an internal toolchain.",
+  "evidence_fixture": "redacted service alias preview used by admin utility demo cards",
+  "suggested_patch_summary": "Use per-utility scopes, remove inline previews, and keep only aliases in the UI.",
+  "verification_summary": "Verified as alias-only with no usable key material present.",
+  "replay_regression_note": "Open the admin utilities panel and compare it with the patch diff that narrows scopes."
+}

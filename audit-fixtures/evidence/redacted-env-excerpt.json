@@ -1,0 +1,9 @@
+{
+  "snapshot": "support-export-2026-04-16",
+  "values": {
+    "NEXT_PUBLIC_DEMO_ANALYTICS_KEY": "demo_public_observability_key",
+    "SUPPORT_FORWARDING_TOKEN": "demo_redacted_token_not_real",
+    "TRUSTLAYER_AUDIT_MANIFEST": "./audit-fixtures/manifest.json"
+  },
+  "notes": "All values are synthetic and non-sensitive. This file exists for seeded audit detection only."
+}

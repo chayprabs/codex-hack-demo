@@ -1,0 +1,10 @@
+--- a/data/generated-filter.ts
++++ b/data/generated-filter.ts
+@@
+- return `owner = '${ownerInput}' AND archived = false`
++ return buildTypedFilter({
++   owner: ownerInput,
++   archived: false,
++ })
+
+Patch summary: replace string interpolation with typed filter construction and review generated helpers before use.

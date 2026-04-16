@@ -1,0 +1,70 @@
+{
+  "repo": "trustlayer-demo-app",
+  "route_groups": [
+    "marketing",
+    "workspace",
+    "api",
+    "audit-fixtures"
+  ],
+  "resources": [
+    {
+      "name": "Project detail routes",
+      "likely_paths": [
+        "app/(workspace)/projects/[projectId]/page.tsx",
+        "app/api/projects/[projectId]/route.ts",
+        "components/projects/access-review-panel.tsx"
+      ],
+      "scenarios": [
+        "RL-TRUST-003",
+        "RL-TRUST-006"
+      ]
+    },
+    {
+      "name": "Integrations and webhook lanes",
+      "likely_paths": [
+        "app/(workspace)/integrations/page.tsx",
+        "components/integrations/webhook-lane-panel.tsx",
+        "app/api/webhooks/provider/route.ts"
+      ],
+      "scenarios": [
+        "RL-TRUST-004",
+        "RL-TRUST-007"
+      ]
+    },
+    {
+      "name": "Admin utilities",
+      "likely_paths": [
+        "app/(workspace)/admin/page.tsx",
+        "components/admin/service-utility-panel.tsx",
+        "components/admin/ops-panel.tsx"
+      ],
+      "scenarios": [
+        "RL-TRUST-001",
+        "RL-TRUST-002"
+      ]
+    },
+    {
+      "name": "Session and sign-in surfaces",
+      "likely_paths": [
+        "app/sign-in/page.tsx",
+        "components/auth/trust-boundary-panel.tsx",
+        "app/api/session/route.ts"
+      ],
+      "scenarios": [
+        "RL-TRUST-005"
+      ]
+    },
+    {
+      "name": "Settings and runtime config",
+      "likely_paths": [
+        ".env.example",
+        "app/(workspace)/settings/page.tsx",
+        "components/settings/exposure-surface-panel.tsx"
+      ],
+      "scenarios": [
+        "RL-TRUST-007",
+        "RL-TRUST-001"
+      ]
+    }
+  ]
+}

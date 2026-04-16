@@ -66,20 +66,36 @@ The seeded audit artifacts live in [`audit-fixtures/`](./audit-fixtures).
 Key files:
 
 - `audit-fixtures/manifest.json`
+- `audit-fixtures/findings/*.json`
 - `audit-fixtures/cases/*.md`
 - `audit-fixtures/snippets/*.disabled`
+- `audit-fixtures/evidence/*.md`
 - `audit-fixtures/evidence/*.json`
-- `audit-fixtures/replay/README.md`
+- `audit-fixtures/patches/*.diff.txt`
+- `audit-fixtures/replay/*.md`
+- `audit-fixtures/repo-map.json`
+- `audit-fixtures/coverage.json`
+- `audit-fixtures/repo-fingerprint.json`
+- `audit-fixtures/score-before-after.json`
+- `audit-fixtures/demo-report.md`
 
 ## Seeded finding categories
 
-- secrets/credentials exposure
-- auth/authz weakness
-- webhook handling weakness
-- unsafe code pattern
-- config/dependency risk
-- frontend exposure risk
-- unsupported/manual review areas
+- Secrets / credential exposure
+- Service/admin key handling risk
+- Access control / IDOR-style risk
+- Webhook verification risk
+- Auth/session trust risk
+- Unsafe generated code pattern
+- Config / CORS / frontend exposure risk
+
+## Live demo anchors
+
+- `/admin` for service/admin key handling, TrustScore, coverage, and repo map narration
+- `/projects/[projectId]` for access control / IDOR-style storytelling
+- `/integrations` plus `/api/webhooks/provider` for webhook verification risk
+- `/sign-in` plus `/api/session` for auth/session trust risk
+- `/settings` for config, CORS, and frontend exposure review
 
 ## Why the repo stays safe
 
@@ -144,4 +160,3 @@ npm run build
 ## Repository shape
 
 This repo is intentionally medium-sized so repo mapping feels meaningful during a security audit demo, while still staying easy to run locally.
-"# codex-hack-demo" 

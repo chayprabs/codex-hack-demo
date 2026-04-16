@@ -1,0 +1,11 @@
+--- a/api/projects/[projectId]/loader.ts
++++ b/api/projects/[projectId]/loader.ts
+@@
+- return loadProject(projectId)
++ return loadProjectForViewer({
++   projectId,
++   tenantId: viewer.tenantId,
++   allowedScopes: viewer.projectScopes,
++ })
+
+Patch summary: replace direct route-to-record loading with tenant-aware access checks.

@@ -1,0 +1,9 @@
+--- a/admin/service-utility.ts
++++ b/admin/service-utility.ts
+@@
+- const serviceKeyPreview = process.env.OPS_EXPORTER_KEY
+- const scopes = ["launch-packets:*", "evidence-bundles:*", "notices:*"]
++ const serviceAlias = process.env.DEMO_EXPORT_KEY_REFERENCE
++ const scopes = ["launch-packets:read", "evidence-bundles:write"]
+
+Patch summary: keep only a redacted alias in UI code and reduce scope to the minimum per utility.

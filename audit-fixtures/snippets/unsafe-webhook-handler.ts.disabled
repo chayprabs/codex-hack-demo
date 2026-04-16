@@ -1,0 +1,12 @@
+// Demo-only disabled snippet.
+// This file is never imported or executed.
+
+export async function handleWebhookWithoutVerification(body: unknown) {
+  // In a real insecure implementation, this would accept unverified traffic
+  // and trigger side effects immediately.
+  return {
+    accepted: true,
+    replayProtection: "missing",
+    received: body,
+  };
+}

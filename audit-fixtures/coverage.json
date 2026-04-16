@@ -1,0 +1,58 @@
+{
+  "summary": "TrustLayer demo coverage is strongest on static code, fixture evidence, route-to-resource mapping, and replayable safety narratives. Production-only network and IAM validation remain intentionally out of scope.",
+  "supported": [
+    "Secrets / credential exposure",
+    "Service/admin key handling risk",
+    "Access control / IDOR-style risk",
+    "Webhook verification risk",
+    "Auth/session trust risk",
+    "Unsafe generated code pattern",
+    "Config / CORS / frontend exposure risk"
+  ],
+  "partial": [
+    "Session trust reasoning across fake persona flows",
+    "Resource-scoped access narratives without a real tenant backend",
+    "Operational review process and service-account ownership semantics"
+  ],
+  "unsupported": [
+    "Live production IAM validation",
+    "Real third-party webhook delivery and network reachability",
+    "External secret manager, SBOM, or cloud inventory collection"
+  ],
+  "buckets": [
+    {
+      "label": "Supported",
+      "count": 7,
+      "areas": [
+        "Static finding packages",
+        "Evidence notes",
+        "Patch diffs",
+        "Replay docs",
+        "Repo map anchors",
+        "TrustScore summary",
+        "Coverage manifest"
+      ],
+      "note": "These are the stage-ready surfaces that map directly to the seven seeded scenarios."
+    },
+    {
+      "label": "Partial",
+      "count": 3,
+      "areas": [
+        "Persona trust reasoning",
+        "Multi-tenant access narratives",
+        "Operational ownership review"
+      ],
+      "note": "These are represented strongly enough for narration, but still intentionally stop short of implementing a real privileged system."
+    },
+    {
+      "label": "Unsupported",
+      "count": 3,
+      "areas": [
+        "Live network validation",
+        "Real cloud IAM posture",
+        "External asset discovery"
+      ],
+      "note": "Kept out of scope so the repo stays local, deterministic, and safe."
+    }
+  ]
+}

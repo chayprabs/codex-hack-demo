@@ -1,0 +1,10 @@
+{
+  "capturedAt": "2026-04-16",
+  "repo": "trustlayer-demo-app",
+  "actualRuntimeStatus": "patched",
+  "illustrativeReviewNotes": [
+    "Pinned framework versions should be reviewed during upgrades.",
+    "Permissive debug flags belong only in local sandboxes.",
+    "Evidence snapshots may describe historical drift without the current app being vulnerable."
+  ]
+}
